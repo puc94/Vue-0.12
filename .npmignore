@@ -1,0 +1,12 @@
+build
+test
+coverage
+example
+explorations
+.*
+*.yml
+*.log
+*.md
+*.json
+src
+docs
