@@ -1,15 +1,44 @@
-var webpack = require('webpack')
-var banner = require('./banner')
+var vue = require('vue-loader')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './lib/index.js',
+  entry: {
+    app: ['./src/index.js']
+  },
   output: {
     path: './dist',
-    filename: 'vue-router.js',
-    library: 'VueRouter',
-    libraryTarget: 'umd'
+    filename: 'build.js'
   },
+  module: {
+    loaders: [
+      {
+        test: /\.vue$/,
+        loader: vue.withLoaders({
+          js: 'babel?optional[]=runtime'
+        })
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules|vue\/src/,
+        loader: 'babel?optional[]=runtime'
+      }
+    ]
+  },
+  devtool: 'source-map',
   plugins: [
-    new webpack.BannerPlugin(banner)
+    new CopyWebpackPlugin([
+      {
+        from: './src/assets',
+        to: 'assets',
+        ignore: ['.*']
+      }
+    ]),
+    new CopyWebpackPlugin([
+      {
+        from: './src/index.html',
+        to: 'index.html',
+        ignore: ['.*']
+      }
+    ])
   ]
 }

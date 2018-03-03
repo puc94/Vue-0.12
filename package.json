@@ -7,7 +7,7 @@
     "dev": "npm run serve & npm run test",
     "lint": "eslint src build test/e2e test/unit/specs",
     "unit": "./node_modules/karma/bin/karma start build/karma.config.js",
-    "build": "babel ./src --optional runtime --out-dir lib && webpack --config build/webpack.build.dev.config.js && webpack --config build/webpack.build.min.config.js",
+    "build": "webpack --config build/webpack.build.dev.config.js && webpack --config build/webpack.build.min.config.js",
     "serve": "webpack-dev-server --hot --config config/webpack.config.js --content-base src --history-api-fallback --host 0.0.0.0",
     "serve-test": "webpack-dev-server --quiet --config test/unit/webpack.config.js --content-base test/unit --history-api-fallback --host 0.0.0.0 --port 8081",
     "e2e-sauce": "nightwatch -c build/nightwatch.sauce.json -e chrome,firefox,ie10,ie11",
@@ -60,8 +60,11 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
+    "babel-eslint": "^1.0.14",
     "babel-runtime": "^5.8.20",
+    "copy-webpack-plugin": "^4.5.0",
     "route-recognizer": "0.1.9",
+    "url-loader": "^0.1.1",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
   },

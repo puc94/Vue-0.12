@@ -2,13 +2,13 @@ export function configRouter (router) {
 
   // normal routes
   router.map({
-    '/school': {
+    '/schools': {
       component: require('./pages/school-list/index.vue')
     },
 
     // nested example
-    '/school/:id': {
-      component: require('./pages/school/index.vue'),
+    '/schools/:id': {
+      component: require('./pages/group-list/index.vue'),
     },
 
     // not found handler
@@ -19,6 +19,6 @@ export function configRouter (router) {
 
   // redirect
   router.redirect({
-    '/': '/school'
+    '/': '/schools'
   })
 }

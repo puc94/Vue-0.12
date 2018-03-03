@@ -1,16 +1,31 @@
 var webpack = require('webpack')
-var banner = require('./banner')
+var vue = require('vue-loader')
 
 module.exports = {
-  entry: './lib/index.js',
+  entry: {
+    app: ['webpack/hot/dev-server', './src/index.js']
+  },
   output: {
     path: './dist',
-    filename: 'vue-router.min.js',
-    library: 'VueRouter',
-    libraryTarget: 'umd'
+    filename: 'build.min.js'
   },
+  module: {
+    loaders: [
+      {
+        test: /\.vue$/,
+        loader: vue.withLoaders({
+          js: 'babel?optional[]=runtime'
+        })
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules|vue\/src/,
+        loader: 'babel?optional[]=runtime'
+      }
+    ]
+  },
+  devtool: 'source-map',
   plugins: [
-    new webpack.BannerPlugin(banner),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false

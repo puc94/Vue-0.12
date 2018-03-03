@@ -2,7 +2,7 @@ var vue = require('vue-loader')
 
 module.exports = {
   entry: {
-    app: ['webpack/hot/dev-server', './src/main.js']
+    app: ['webpack/hot/dev-server', './src/index.js']
   },
   output: {
     path: './src',
