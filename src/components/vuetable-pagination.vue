@@ -92,7 +92,7 @@ export default {
   methods: {
     loadPage (page) {
 
-      this.$dispatch('onChangePage', page)
+      this.$parent.$emit('onChangePage', page)
     },
     isCurrentPage (page) {
       return page === this.tablePagination.current_page

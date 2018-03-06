@@ -39,7 +39,6 @@
     "css-loader": "^0.15.4",
     "es6-promise": "^3.0.2",
     "eslint": "^0.24.0",
-    "express": "^4.12.3",
     "html-loader": "^0.3.0",
     "istanbul-instrumenter-loader": "^0.1.3",
     "jasmine-core": "^2.3.2",
@@ -60,13 +59,18 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
+    "async": "^2.6.0",
+    "axios": "^0.18.0",
     "babel-eslint": "^1.0.14",
     "babel-runtime": "^5.8.20",
+    "body-parser": "^1.18.2",
     "copy-webpack-plugin": "^4.5.0",
+    "express": "^4.12.3",
+    "fs": "0.0.1-security",
     "route-recognizer": "0.1.9",
+    "typescript": "^2.7.2",
     "url-loader": "^0.1.1",
-    "webpack": "^1.11.0",
-    "webpack-dev-server": "^1.10.1"
+    "vue-server-renderer": "^2.5.13"
   },
   "engines": {
     "node": "~6.11.0",
